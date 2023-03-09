@@ -7,6 +7,10 @@
 #include "Abstract Factory.h"
 #include "Adapter.h"
 #include "Decorator.h"
+#include "Bridge.h"
+#include "Composite.h"
+#include "Facade.h"
+#include "Proxy.h"
 
 
 using namespace std;
@@ -18,13 +22,12 @@ int main()
 {
 	SetConsoleOutputCP(1251);
 
-	Pizza* pizza = new UkranianPizza();
-	pizza = new Tomato(pizza);
-	pizza = new Cheese(pizza);
-	/*pizza = new Cheese(pizza);
-	pizza = new Mushrooms(pizza);
-	pizza = new Tomato(pizza);*/
+	DataBaseProxy* proxy = new DataBaseProxy();
 
-	cout << "Назва : " << pizza->getName() << endl;
-	cout << "Ціна  : " << pizza->getPrice() << endl;
+	while (true)
+	{
+		string key;
+		cin >> key;
+		cout << proxy->getPage(key) << endl;
+	}
 }
